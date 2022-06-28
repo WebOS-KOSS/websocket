@@ -1,4 +1,4 @@
-let socket = new WebSocket('ws://192.168.52.206:9000');
+let socket = new WebSocket('ws://192.168.232.218:9000');
 
 let name = '';
 /* 접속 되었을 때 실행 */

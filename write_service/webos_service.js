@@ -23,6 +23,16 @@ service.register("wsServerOn", function(message) {
             service.call(url, params, function(m2) {
             console.log(logHeader, "SERVICE_METHOD_CALLED:com.webos.notification/createToast");
             });
+            
+            let param = {
+                "text":`${message.data.slice(26, -2)}`,
+                "language":"ko-KR",
+                "clear":true
+            };
+
+            service.call("luna://com.webos.service.tts/speak", param, function(m2) {
+                console.log(logHeader, "SERVICE_METHOD_CALLED:com.webos.service.tts/speak");
+                });
         })
     });
     const sub = service.subscribe(`luna://${pkgInfo.name}/heartbeat`, {subscribe: true});
