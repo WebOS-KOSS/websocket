@@ -10,16 +10,6 @@ const WebSocketServer = require('ws').WebSocketServer;
 
 //const port = 9000;
 
-const handleMessage = (message) => {
-    let url = "luna://com.webos.notification/createToast";
-    let params = {
-        message: `${message}`    
-    };
-    service.call(url, params, function(m2) {
-    console.log(logHeader, "SERVICE_METHOD_CALLED:com.webos.notification/createToast");
-    });
-};
-
 service.register("wsServerOn", function(message) {
     const wss = new WebSocketServer({
         port: 9000
